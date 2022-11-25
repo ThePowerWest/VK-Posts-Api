@@ -1,12 +1,13 @@
 ﻿using System.Text.RegularExpressions;
 using VK_Posts_Api.Models;
+using VK_Posts_Api.Services.Interfaces;
 
 namespace VK_Posts_Api.Services
 {
     /// <summary>
     /// Сервис для подсчета букв
     /// </summary>
-    public class LetterService
+    public class LetterService : ILetterService
     {
         /// <summary>
         /// Посчитать буквы в постах

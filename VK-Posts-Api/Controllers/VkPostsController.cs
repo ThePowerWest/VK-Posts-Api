@@ -1,7 +1,8 @@
-using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using VK_Posts_Api.DAL.Interfaces;
 using VK_Posts_Api.Models;
 using VK_Posts_Api.Services;
+using VK_Posts_Api.Services.Interfaces;
 
 namespace VK_Posts_Api.Controllers
 {
@@ -12,10 +13,10 @@ namespace VK_Posts_Api.Controllers
     [Route("[controller]")]
     public class VkPostsController : ControllerBase
     {
+        private readonly IPostService postService;
+        private readonly ILetterService letterService;
         private readonly IRepository<Result> repository;
         private readonly ILogger<VkPostsController> logger;
-        PostService postService = new();
-        LetterService letterService = new();
 
         /// <summary>
         /// ctor
@@ -23,10 +24,14 @@ namespace VK_Posts_Api.Controllers
         /// <param name="logger"></param>
         /// <param name="_repository"></param>
         public VkPostsController(ILogger<VkPostsController> _logger,
-            IRepository<Result> _repository)
+            IRepository<Result> _repository,
+            ILetterService _letterService,
+            IPostService _postService)
         {
             logger = _logger;
             repository = _repository;
+            letterService = _letterService;
+            postService = _postService;
         }
 
         /// <summary>

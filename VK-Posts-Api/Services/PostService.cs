@@ -1,15 +1,15 @@
 ﻿using Newtonsoft.Json;
-using NLog.Web.LayoutRenderers;
 using System.Net;
 using VK_Posts_Api.Models;
 using VK_Posts_Api.Models.VkAPI;
+using VK_Posts_Api.Services.Interfaces;
 
 namespace VK_Posts_Api.Services
 {
     /// <summary>
     /// Сервис для получения постов пользователя
     /// </summary>
-    public class PostService
+    public class PostService : IPostService
     {
         /// <summary>
         /// Поиск

@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 
-namespace ApplicationCore.Interfaces;
+namespace VK_Posts_Api.DAL.Interfaces;
 
 /// <summary>
 /// Интерфейс репозитория с CRUD методами

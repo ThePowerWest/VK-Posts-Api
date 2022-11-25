@@ -1,9 +1,11 @@
-using ApplicationCore.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using NLog;
 using NLog.Web;
 using VK_Posts_Api.DAL;
+using VK_Posts_Api.DAL.Interfaces;
+using VK_Posts_Api.Services.Interfaces;
+using VK_Posts_Api.Services;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
@@ -32,6 +34,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EFRepository<>));
+builder.Services.AddScoped(typeof(IPostService), typeof(PostService));
+builder.Services.AddScoped(typeof(ILetterService), typeof(LetterService));
 
 string dbString = Environment.GetEnvironmentVariable("DB_STRING");
 builder.Services.AddDbContext<MainContext>(options => options.UseNpgsql(dbString));

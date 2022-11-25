@@ -1,5 +1,5 @@
-﻿using ApplicationCore.Interfaces;
-using Ardalis.Specification.EntityFrameworkCore;
+﻿using Ardalis.Specification.EntityFrameworkCore;
+using VK_Posts_Api.DAL.Interfaces;
 
 namespace VK_Posts_Api.DAL
 {
